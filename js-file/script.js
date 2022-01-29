@@ -39,38 +39,36 @@ const form = document.querySelector('form')
 form.addEventListener('click', (e) => {
   if (e.target.classList.contains('delete-feild')) {
     e.target.parentElement.parentElement.style.display = 'none'
-    console.log(e.target.parentElement.parentElement.value);
+    console.log(e.target.parentElement.parentElement.value)
   }
 })
 
 //form validation
-function validation(){
-  let name =  document.getElementById('name').value;
-  let email =  document.getElementById('email').value;
-  let phone =  document.getElementById('phone').value;
-  let genderMale =  document.getElementById('inlineRadio1').checked;
-  let genderFemale =  document.getElementById('inlineRadio2').checked;
-  if(name.length==0){
-    return false;
-  }
-  if(email.length==0){
+function validation() {
+  let name = document.getElementById('name').value
+  let email = document.getElementById('email').value
+  let phone = document.getElementById('phone').value
+  let genderMale = document.getElementById('inlineRadio1').checked
+  let genderFemale = document.getElementById('inlineRadio2').checked
+  if (name.length == 0) {
     return false
   }
-  if(phone.length==0){
-    return false;
+  if (email.length == 0) {
+    return false
   }
-  if(genderMale==false && genderFemale==false){
-    return false;
+  if (phone.length == 0) {
+    return false
   }
-  else{
-    return true;
+  if (genderMale == false && genderFemale == false) {
+    return false
+  } else {
+    return true
   }
 }
 
-document.getElementById('submit_btn').addEventListener('click',(e)=>{
-  e.preventDefault();
-  if(!validation()){
-    return false;
+document.getElementById('submit_btn').addEventListener('click', (e) => {
+  e.preventDefault()
+  if (!validation()) {
+    return false
   }
-  
 })
