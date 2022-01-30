@@ -43,10 +43,9 @@ form.addEventListener('click', (e) => {
     educationField.removeChild(target)
   }
 })
-// form.addEventListener('keypress', (e) => {
+// form.addEventListener('click', (e) => {
 //   if (e.target.classList.contains('degree-name')) {
-//     let value = []
-//     value.push(e.target.value)
+//     let value = e.target.value
 //     console.log(value)
 //   }
 // })
