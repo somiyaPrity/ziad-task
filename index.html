@@ -28,6 +28,7 @@
                 id="name"
                 required
               />
+              <p class="mb-0" id="name_error" style="color: red;"></p>
             </div>
           </div>
           <!-- email -->
@@ -41,6 +42,7 @@
                 id="email"
                 required
               />
+              <p class="mb-0" id="email_error" style="color: red;"></p>
             </div>
           </div>
           <!-- phone number -->
@@ -53,6 +55,7 @@
                 name="phone"
                 id="phone"
               />
+              <p class="mb-0" id="phone_error" style="color: red;"></p>
             </div>
           </div>
           <!-- gender -->
@@ -83,6 +86,7 @@
                   >Female</label
                 >
               </div>
+              <p class="mb-0" id="gender_error" style="color: red;"></p>
             </div>
           </div>
           <!-- education -->
@@ -139,10 +143,11 @@
                     aria-label="Default select example"
                     required
                   >
-                    <option selected>Select Country</option>
+                    <option selected value="">Select Country</option>
                     <option value="1">Bangladesh</option>
                     <option value="2">Other...</option>
                   </select>
+                  <p class="mb-0" id="country_error" style="color: red;"></p>
                 </div>
                 <div class="col-md-6">
                   <input
@@ -153,6 +158,7 @@
                     placeholder="Country Name"
                     required
                   />
+                  <p class="mb-0" id="country_name_error" style="color: red;"></p>
                 </div>
               </div>
             </div>
