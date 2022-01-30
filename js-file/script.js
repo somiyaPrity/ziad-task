@@ -70,11 +70,11 @@ function validation() {
   let countryName = document.getElementById('country_name')
 
   if (name.length == 0) {
-    document.getElementById('name_error').textContent = 'Please input a valid name';
+    document.getElementById('name_error').textContent =
+      'Please input a valid name'
     return false
   }
   if (email.length == 0) {
-<<<<<<< HEAD
     let re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     let emailValidate = re.test(String(email).toLowerCase())
@@ -83,23 +83,24 @@ function validation() {
     }
   }
   if (phone.length < 11) {
-=======
-    let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let emailValidate = re.test(String(email).toLowerCase());
-    if(emailValidate==false){
-      document.getElementById('email_error').textContent = 'Please input a valid email';
-      return false;
+    let re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    let emailValidate = re.test(String(email).toLowerCase())
+    if (emailValidate == false) {
+      document.getElementById('email_error').textContent =
+        'Please input a valid email'
+      return false
     }
   }
-  if (phone.length < 11 ) {
-    document.getElementById('phone_error').textContent = 'Please input a valid phone number';
->>>>>>> eb3c76f2b690419877537696627f7bae3da83716
+  if (phone.length < 11) {
+    document.getElementById('phone_error').textContent =
+      'Please input a valid phone number'
+
     return false
   }
   if (genderMale == false && genderFemale == false) {
-    document.getElementById('gender_error').textContent = 'Please select gender';
+    document.getElementById('gender_error').textContent = 'Please select gender'
     return false
-<<<<<<< HEAD
   }
   if (country.value == null) {
     return false
@@ -107,18 +108,19 @@ function validation() {
   if (country.value == 2) {
     if (countryName.length == 0) {
       return false
-=======
-  } 
-  if(country.value == ''){
-    console.log(country.value);
-    document.getElementById('country_error').textContent = 'Please select your country';
-    return false;
+    }
   }
-  if(country.value==2){
-    if(countryName.length==0){
-      document.getElementById('country_name_error').textContent = 'Please write your country name';
-      return false;
->>>>>>> eb3c76f2b690419877537696627f7bae3da83716
+  if (country.value == '') {
+    console.log(country.value)
+    document.getElementById('country_error').textContent =
+      'Please select your country'
+    return false
+  }
+  if (country.value == 2) {
+    if (countryName.length == 0) {
+      document.getElementById('country_name_error').textContent =
+        'Please write your country name'
+      return false
     }
   } else {
     return true
