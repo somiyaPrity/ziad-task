@@ -1,17 +1,18 @@
-// add more education feild
+// add more education field
 
-const addFeild = document.querySelector('.add-button')
+const addField = document.querySelector('.add-button')
+const educationField = document.querySelector('.education-field')
 
-addFeild.addEventListener('click', () => {
-  const educationFeild = document.querySelector('.edcation-feild')
-  const buttonDiv = document.querySelector('.add-more-feild')
+addField.addEventListener('click', () => {
+  const buttonDiv = document.querySelector('.add-more-field')
   const div = document.createElement('div')
-  div.classList.add('education-input-feild', 'row', 'mb-2')
+  div.classList.add('education-input-field', 'row', 'mb-2')
   div.innerHTML = `
       <div class="col-md-5">
                           <input
                             type="text"
                             class="form-control"
+                            onkeydown = "console.log(this.value)"
                             placeholder="Degree name "
                           />
                        </div>
@@ -25,33 +26,39 @@ addFeild.addEventListener('click', () => {
                         <div class="col-md-2">
                           <input
                             type="button"
-                            class="bg-white form-control delete-feild"
+                            class="bg-white form-control delete-field"
                             value="X"
                           />
        </div>
 `
-  educationFeild.insertBefore(div, buttonDiv)
+  educationField.insertBefore(div, buttonDiv)
 })
 
-// delete extra education feild
+// delete extra education field
 const form = document.querySelector('form')
 
 form.addEventListener('click', (e) => {
-  if (e.target.classList.contains('delete-feild')) {
-    e.target.parentElement.parentElement.style.display = 'none'
-    console.log(e.target.parentElement.parentElement.value)
+  if (e.target.classList.contains('delete-field')) {
+    const target = e.target.parentElement.parentElement
+    educationField.removeChild(target)
   }
 })
-
+// form.addEventListener('keypress', (e) => {
+//   if (e.target.classList.contains('degree-name')) {
+//     let value = []
+//     value.push(e.target.value)
+//     console.log(value)
+//   }
+// })
 //form validation
-let country  = document.getElementById('country');
-let countryName = document.getElementById('country_name');
-country.addEventListener('change',()=>{
-  if(country.value==2){
-    countryName.removeAttribute('disabled');
+let country = document.getElementById('country')
+let countryName = document.getElementById('country_name')
+country.addEventListener('change', () => {
+  if (country.value == 2) {
+    countryName.removeAttribute('disabled')
   }
-  if(country.value==1){
-    countryName.setAttribute('disabled',true);
+  if (country.value == 1) {
+    countryName.setAttribute('disabled', true)
   }
 })
 function validation() {
@@ -60,41 +67,42 @@ function validation() {
   let phone = document.getElementById('phone').value
   let genderMale = document.getElementById('inlineRadio1').checked
   let genderFemale = document.getElementById('inlineRadio2').checked
-  let country  = document.getElementById('country');
-  let countryName = document.getElementById('country_name');
+  let country = document.getElementById('country')
+  let countryName = document.getElementById('country_name')
+
   if (name.length == 0) {
     return false
   }
   if (email.length == 0) {
-    let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let emailValidate = re.test(String(email).toLowerCase());
-    if(emailValidate==false){
-      return false;
+    let re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    let emailValidate = re.test(String(email).toLowerCase())
+    if (emailValidate == false) {
+      return false
     }
   }
-  if (phone.length < 11 ) {
+  if (phone.length < 11) {
     return false
   }
   if (genderMale == false && genderFemale == false) {
     return false
-  } 
-  if(country.value == null){
-    return false;
   }
-  if(country.value==2){
-    if(countryName.length==0){
-      return false;
+  if (country.value == null) {
+    return false
+  }
+  if (country.value == 2) {
+    if (countryName.length == 0) {
+      return false
     }
-  }
-  else {
+  } else {
     return true
   }
 }
 
 document.getElementById('submit_btn').addEventListener('click', (e) => {
-  e.preventDefault();
+  e.preventDefault()
   if (!validation()) {
     return false
   }
-  console.log('validate successfull');
+  console.log('validate successfull')
 })
